@@ -33,7 +33,7 @@ public class ClienteRestController {
 	}
 	
 	
-	@GetMapping("/cliente/{id}")
+	@GetMapping("/clientes/{id}")
 	public Cliente show(@PathVariable Long id) {
 		return clienteService.findById(id);
 	}
@@ -41,6 +41,7 @@ public class ClienteRestController {
 	@PostMapping("/clientes")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Cliente create(@RequestBody Cliente cliente) {
+		System.out.println("Cliente Nuevo: "+cliente.getName()+" "+cliente.getLastname()+" "+ cliente.getEmail());
 		return clienteService.save(cliente);
 	}
 	

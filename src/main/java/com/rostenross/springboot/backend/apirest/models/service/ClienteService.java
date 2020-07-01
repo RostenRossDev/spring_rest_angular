@@ -11,7 +11,6 @@ import com.rostenross.springboot.backend.apirest.models.entity.Cliente;
 
 @Service
 public class ClienteService implements IClienteService{
-
 	@Autowired
 	private IClienteDao clienteDao;
 	
@@ -41,6 +40,7 @@ public class ClienteService implements IClienteService{
 	@Transactional(readOnly = true)
 	public Cliente findById(Long id) {
 		// TODO Auto-generated method stub
+
 		return clienteDao.findById(id).orElse(null);
 	}
 
