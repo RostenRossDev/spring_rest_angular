@@ -74,7 +74,7 @@ public class ClienteRestController {
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
 	}
 	
-	@PutMapping("/cliente/{id}")
+	@PutMapping("/clientes/{id}")
 	public ResponseEntity<?> update(@RequestBody Cliente cliente, @PathVariable Long id) {
 		Cliente clienteActual= clienteService.findById(id);
 		Cliente clienteUpdate = null; 
@@ -96,7 +96,7 @@ public class ClienteRestController {
 			response.put("error", e.getMessage().concat(":").concat(e.getMostSpecificCause().getMessage()));
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);		
 		}
-		response.put("mensaje", "¡¡El cliente ha sido actualizado con éxito!!");
+		response.put("mensaje", "¡¡El cliente"+clienteUpdate.getName()+" "+clienteUpdate.getLastname()+" ha sido actualizado con éxito!!");
 		response.put("cliente", clienteUpdate);
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
 	}
